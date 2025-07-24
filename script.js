@@ -1,10 +1,13 @@
-const apiKey = 'YOUR_RAWG_API_KEY'; // 🔐 Replace with your RAWG API key
+const apiKey = '3b102c6150fd45778a812aed2c1624e2';
 const searchBtn = document.getElementById('searchBtn');
 const resultDiv = document.getElementById('result');
 
 searchBtn.addEventListener('click', () => {
-  const query = document.getElementById('searchInput').value;
-  if (!query) return;
+  const query = document.getElementById('searchInput').value.trim();
+  if (!query) {
+    resultDiv.innerHTML = "<p>Please enter a game name.</p>";
+    return;
+  }
 
   fetch(`https://api.rawg.io/api/games?key=${apiKey}&search=${encodeURIComponent(query)}`)
     .then(res => res.json())
@@ -18,7 +21,7 @@ searchBtn.addEventListener('click', () => {
           <p><strong>Rating:</strong> ${game.rating} / 5</p>
           <p><strong>Platforms:</strong> ${game.platforms.map(p => p.platform.name).join(', ')}</p>
         `;
-        localStorage.setItem("lastSearch", query); // Store last search
+        localStorage.setItem("lastSearch", query); // store last search
       } else {
         resultDiv.innerHTML = "<p>No results found!</p>";
       }
