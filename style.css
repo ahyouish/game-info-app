@@ -1,0 +1,31 @@
+body {
+  background-color: #0d1117;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+input, button {
+  padding: 10px;
+  margin: 10px;
+  font-size: 1em;
+}
+
+.game-card {
+  background: #161b22;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #58a6ff;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 10px;
+}
